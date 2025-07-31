@@ -527,3 +527,13 @@ select CustomerID from Customers
  --- 15 Write a query that uses a CASE statement to determine the discount percentage based on the quantity purchased. 
  ---Use orders table. Result set should show customerid, quantity and discount percentage. 
  --- The discount should be applied as follows: 1 item: 3% Between 1 and 3 items : 5% Otherwise: 7%
+
+
+ Select customerid, quantity, totalamount, 
+	Case 
+		When quantity > 3 then '7% discount'
+		when quantity <=3 and quantity >1 then '5% discount' 
+		else '3% discount' 
+	end
+from orders 
+
